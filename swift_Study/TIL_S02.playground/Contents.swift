@@ -222,3 +222,4 @@ var huhang3: Int = calculated(a: 10, b: 20){
 
 //암시적 반환 표현: 마지막줄 자동 리턴 (return 생략)
 var huhang4: Int = calculated(a: 10, b: 20){ $0 + $1 }
+
