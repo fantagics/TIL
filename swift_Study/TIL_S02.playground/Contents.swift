@@ -89,6 +89,8 @@ var testDictionary4 = [String:Any]()
 testDictionary1["key1"] = "abc"
 testDictionary1["key2"] = 50
 print(testDictionary1)  // ["key2": 50, "key1": "abc"]
+print(testDictionary1["key1"]) //Optional("abc")
+print(testDictionary1["ABC"])  //nil
 testDictionary1.removeValue(forKey : "key1")  //삭제
 testDictionary1["key2"] = nil  //삭제
 
@@ -151,6 +153,26 @@ if let orange: Fruits = Fruits(rawValue: 4){
 }else{
     print("No Exist")
 }
+
+enum Alpabat: Int, CaseIterable{
+    case aaa
+    case bbb
+    case ccc
+var name: String{
+        switch self{
+            case .aaa:
+                return "AAA"
+            case .bbb:
+                return "BBB"
+            case .ccc:
+                return "CCC"
+        }
+    }
+}
+for i in Alpabat.allCases {
+    print(i, i.rawValue)
+}
+
 //: Optional
 // 값이 있을 수도, 없을 수도 있다 (nil의 가능성 명시)
 let optionalValue1: Optional<Int> = nil
