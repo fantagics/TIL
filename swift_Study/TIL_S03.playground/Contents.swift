@@ -114,8 +114,52 @@ if let ableRuleB: RuleB = ptcAnyone as? RuleB{
 } // B
 
 //MARK: - init
+class SampleOne{
+    //var one: Int  //불가
+    var one: Int = 0
+    var two: String = ""
+}
+class SampleTwo{
+    var one: Int
+    var two: String
+    //이니셜라이저
+    init(a: Int, b: String){
+        self.one = a
+        self.two = b
+    }
+}
+let jinwoo: SampleTwo = SampleTwo(a: 21, b: "JinWoo")
+
+class SampleThree{
+    var one: Int
+    var two: String?  //Optional : 필요할수도 안할수도
+    init(one:Int){
+        self.one = one
+    }
+    convenience init(one: Int, two: String){
+        self.init(one: one)  //자신의 init을 호출할 떄 convenience필요
+        self.two = two
+    }
+}
+let youjin: SampleThree = SampleThree(one: 23) //one=23, two=nil
+
+class SampleFour{
+    var one: Int
+    var two: SampleThree!  //암시적 추출 옵셔널 : 값이없을수도있지만 필요한존재
+    init(one:Int){
+        self.one = one
+    }
+    func printSample(){
+        print("one: \(one), two: \(two.one)")
+    }
+}
+let poppy: SampleFour = SampleFour(one: 3)
+//poppy.printSample()  //=에러
+poppy.two = youjin
+poppy.printSample()
 
 //MARK: - enum
+
 //MARK: - Optional
 
 //MARK: - Clousure
