@@ -159,7 +159,188 @@ poppy.two = youjin
 poppy.printSample()
 
 //MARK: - enum
+// 자체가 하나의 데이터 타입, case 하나하나 전부 유의미한 값 취급
+// 상속 불가
+// 값(value)타입
+enum Weekday{
+    case mon
+    case tue
+    case wed, thu, fri, sat, sun
+}
 
+//var today: Weekday = Weekday.mon
+var today = Weekday.mon
+today = .wed
+switch today{
+case .mon, .tue, .wed, .thu, .fri:
+    print("평일")
+case .sat, .sun:  //맴버 모두 사용시 default생략 가능
+    print("주말")
+}
+
+enum Fruits: Int { //원시값
+    case apple = 0
+    //case grape = 1
+    case grape  //자동으로 1씩 증가함
+    case carrot  //2
+
+    func printFruit(){  //열거형 함수
+        switch self {
+        case .apple, .grape:
+            print("과일")
+        default:
+            print("야채")
+        }
+    }
+}
+
+print(Fruits.grape.rawValue)
+Fruits.carrot.printFruit()
+
+//let banana: Fruits = Fruits(rawValue: 5) //값이 없으면 에러이기떄문에
+let banana: Fruits? = Fruits(rawValue: 5) //기본 타입: Optional
+
+if let orange: Fruits = Fruits(rawValue: 4){
+    print("rawValue 4 = \(orange)")
+}else{
+    print("No Exist")
+}
+
+enum AlpabatF:String, CaseIterable{
+    case aaa = "AAA"
+    case bbb = "BBB"
+    case ccc = "CCC"
+}
+for i in AlpabatF.allCases {
+    print(i, i.rawValue)
+}
+enum AlpabatS: Int, CaseIterable{
+    case aaa
+    case bbb
+    case ccc
+var name: String{
+        switch self{
+            case .aaa:
+                return "AAA"
+            case .bbb:
+                return "BBB"
+            case .ccc:
+                return "CCC"
+        }
+    }
+}
+for i in AlpabatS.allCases {
+    print(i, i.rawValue)
+}
+    
 //MARK: - Optional
+//: 값이 있을 수도, 없을 수도 있다 (nil의 가능성 명시)
+var optionalValue: Int?
+
+let optionalValue1: Optional<Int> = nil
+var optionalValue2: Int? = 3  //?표기 띄어쓰기 불가
+//optionalValue2 += 1  //기존 변수처럼 사용 불가(서로 다른 타입임)(Optional 타입)
+optionalValue2 = nil
+
+//- 옵셔널 해제하는 방법 3가지
+//  * Optionsl Binding(if let)
+//  * Forced Unwrapping(!)
+//  * Early Exit(guard let)
+//  * Chaining(a?.b?.c?)
+
+
+// Optional Binding(옵셔널 바인딩) : nil 체크 + 안전한 추출
+// if let int = int? { … }
+func fullName(firstName: String?,lastName: String){
+  //if let fname=firstName, let lname=lastName{ //둘다 nil아닐때 실행
+    if let fname = firstName{ //optional이 nil이 아닌 경우
+        print(fname + lastName)
+    }
+    else {
+        print("need first name")//optional이 nil인 경우
+    }
+}
+
+
+//Forced Unwrapping(강제 추출) : 옵셔널 값을 옵셔널이 아닌 값으로 추출
+// : ‘!’ 를 붙여 사용( 런타임 오류가 일어날 가능성이 높아, 위험한 방법임)
+var optionalValue3: String?
+optionalValue3 = "Hello"
+var notOptionalValue: String = optionalValue3!
+optionalValue3 = nil
+//notOptionalValue = optionalValue3!  //error
+func printName(_ name: String){
+    print(name)
+}
+
+var optName: String? = "Alpa"
+//printName(optName)   //error
+printName(optName!)  //강제추출
+
+var forcName: String! = nil
+//printName(forcName)   //error
+forcName = "Beta"
+printName(forcName)  //강제추출
+
+
+//Early Exit (guard)
+func earlyExit(a: Int){
+    guard a < 0 else{ return }
+}
+
+
+//옵셔널체이닝 : 옵셔널체이닝 (nil 판단)
+class PersonA{
+    var name: String
+    var job: String?
+    var home: ApartmentA?
+    init(name: String){ self.name=name }
+}
+class ApartmentA{
+    var dong: String
+    var hosu: String
+    var managerA: PersonA?
+    var ownerA: PersonA?
+    init(dong:String, hosu:String){
+        self.dong=dong
+        self.hosu=hosu
+    }
+}
+let gaga: PersonA? = PersonA(name: "GaGa")
+let hyendae: ApartmentA? = ApartmentA(dong: "103", hosu: "502")
+let nana: PersonA? = PersonA(name: "NaNa")
+
+// 옵셔널체이닝 사용전
+func managerAJob(owner: PersonA?){
+    if let owner = owner { //owner != nil
+        if let home = owner.home { // owner.home != nil
+            if let manager = home.managerA{
+                if let job = manager.job{
+                    print("owner의 집의 관리자의 직업은 \(job)")
+                }
+                else{
+                    print("owner의 집의 관리자의 직업은 존재안함(nil)")
+                }
+            }
+        }
+    }
+}
+
+//옵셔널체이닝 사용후
+func managerBJob(owner: PersonA?){
+    if let job = owner?.home?.managerA?.job { //앞에서부터 순차적으로 확인
+        print("owner의 집의 관리자의 직업은 \(job)")
+    }
+    else{
+        print("owner의 집의 관리자의 직업은 존재안함(nil)")
+    }
+}
+gaga?.home = hyendae
+gaga?.home?.managerA = nana
+nana?.job = "경비원"
+managerBJob(owner: gaga) //owner의 집의 관리자의 직업은 경비원
+
+//nil병합
+print(gaga?.job ?? "개발자") //gaga?.job이 nil이면 "개발자"를 리턴
 
 //MARK: - Clousure
