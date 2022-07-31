@@ -31,7 +31,8 @@ class ViewController: UIViewController {
         button.setTitleColor(.green, for: .normal)
 //        button.frame = CGRect(x: view.frame.midX - 100, y: view.frame.midY + 50, width: 200, height: 100)
         button.frame.origin = CGPoint(x: view.frame.midX - 100, y: view.frame.midY + 50)
-        button.frame.size = CGSize(width: 200, height: 100)
+//        button.frame.size = CGSize(width: 200, height: 100)
+        button.sizeToFit()
         
         button.addTarget(self, action: #selector(DidTapButton(_:)), for: .touchUpInside)
     }
