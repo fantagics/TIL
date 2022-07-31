@@ -400,3 +400,18 @@ func add2(value:inout Int){
     value += 1
 }
 add2(value: &num) //주소를 받아옴
+
+
+//Value Capture
+func makeIncrementer (forIncrement amount : Int) -> (() -> Int) {
+    var runningTotal = 0
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    return incrementer
+}
+let incrementByTwo: (() -> Int) = makeIncrementer(forIncrement: 2)
+let first: Int = incrementByTwo() // 2
+let second: Int = incrementByTwo() // 4
+let third: Int = incrementByTwo() // 6
