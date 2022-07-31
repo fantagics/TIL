@@ -344,3 +344,59 @@ managerBJob(owner: gaga) //owner의 집의 관리자의 직업은 경비원
 print(gaga?.job ?? "개발자") //gaga?.job이 nil이면 "개발자"를 리턴
 
 //MARK: - Clousure
+
+// (함수 = 클로저의 일종)
+// func myFunc(){  } //이름 있는 클로저
+// {  } //이름 없는 클로저
+
+//클로저
+//  * 실행가능한 코드블럭 / 이름없는 함수
+//  * (함수의 전달인자로 자주 사용
+//  * 참조(reference) 타입
+//  * 매개변수 참조 캡쳐
+let added: (Int,Int) -> Int = {(a: Int, b: Int)-> Int in
+    return a+b
+}
+print(added(2,3))
+
+func calculated(a: Int, b: Int, method: (Int, Int)->Int)->Int{
+    return method(a,b)
+}
+print(calculated(a: 3, b: 4, method: added)) //매개변수로 함수: '()'사용X
+
+var multiplied: Int = calculated(a: 4, b: 25, method: {(c:Int, d:Int)->Int in
+    return c*d
+}) //100
+
+var voidFunc: (String)->Void = { value in
+    print(value)
+}
+
+// - 후행클로저
+var huhang1: Int = calculated(a: 10, b: 20){(c:Int, d:Int) -> Int in
+    return c+d
+}
+
+// 반환타입 생략: calculated함수 정의부분에서 이미 반환값 정의되어있으므로 생략가능
+var huhang2: Int = calculated(a: 10, b: 20){(c:Int, d:Int) in
+    return c+d
+}
+
+//단축 인자이름: calculated함수 정의부분에서 이미 매게변수 타입이 정의되어있으므로 in과 함께 생략가능
+var huhang3: Int = calculated(a: 10, b: 20){
+    return $0 + $1
+}
+
+//암시적 반환 표현: 마지막줄 자동 리턴 (return 생략)
+var huhang4: Int = calculated(a: 10, b: 20){ $0 + $1 }
+
+
+// in / out
+var num = 1
+func add(value:Int){  //value는 let타입
+    //value += 1 //error
+}
+func add2(value:inout Int){
+    value += 1
+}
+add2(value: &num) //주소를 받아옴
