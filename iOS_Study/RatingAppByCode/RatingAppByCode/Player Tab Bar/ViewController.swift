@@ -23,11 +23,14 @@ class ViewController: UIViewController {
 //        tableView.backgroundColor = UIColor.red
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
+        
     }
 
     @objc func barButtonDidTapped(_ sender: UIBarButtonItem){
 //        print(#function)
-        present(AddPlayerViewController(), animated: true)
+//        present(AddPlayerViewController(), animated: true)
+        let navVC = UINavigationController(rootViewController: AddPlayerViewController())
+        present(navVC, animated: true)
     }
 
     
