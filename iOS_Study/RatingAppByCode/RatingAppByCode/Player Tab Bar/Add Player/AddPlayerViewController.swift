@@ -24,6 +24,7 @@ class AddPlayerViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         
         tableView.register(AddPlayerTextFieldTableViewCell.self, forCellReuseIdentifier: AddPlayerTextFieldTableViewCell.identifier)
@@ -33,6 +34,7 @@ class AddPlayerViewController: UIViewController {
         switch sender {
         case cancelBarButtonItem:
             print("Cancel")
+            dismiss(animated: true, completion: nil)
         case doneBarButtonItem:
             print("Done")
         default:
@@ -60,13 +62,30 @@ extension AddPlayerViewController: UITableViewDataSource{
             
             return cell
         case 1:
-            let cell = UITableViewCell()
-            cell.textLabel?.text = "Game"
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+//            cell.textLabel?.text = "Game"  //지원은 하지만 사라질 방식
+            //권장방식:
+            var content = cell.defaultContentConfiguration()
+            content.text = "Game"
+            content.secondaryText = "Detail"
+            content.secondaryTextProperties.color = .black
+            content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 14)
+            cell.contentConfiguration = content
+            cell.selectionStyle = .none
+            
             cell.accessoryType = .disclosureIndicator
             return cell
         default:
             fatalError()
         }
-        
+    }
+}
+
+extension AddPlayerViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard indexPath.section ==1 else{return}
+        if indexPath.section == 1 && indexPath.row == 0{
+            navigationController?.pushViewController(GameSelectionViewController(), animated: true)
+        }
     }
 }

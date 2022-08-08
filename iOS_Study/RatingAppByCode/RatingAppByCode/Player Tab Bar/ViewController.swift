@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     let tableView = UITableView()
     let titles = ["Bill Evans", "Oscar Peterson", "Dave Brubeck"]
-    let subTitles = ["Tic-Tac-Toe", "Spin the Bottle", "Tanas Hold'em Poker"]
+    let subTitles = ["Tic-Tac-Toe", "Spin the Bottle", "Taxas Hold'em Poker"]
     let stars = ["4Stars", "5Stars", "2Stars"]
 
     override func viewDidLoad() {

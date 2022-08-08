@@ -15,6 +15,9 @@
 		B65F94BF2897D96E007D960C /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F94BE2897D96E007D960C /* GestureViewController.swift */; };
 		B65F94C12897E5D9007D960C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F94C02897E5D9007D960C /* CustomTableViewCell.swift */; };
 		B65F94C32897F007007D960C /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F94C22897F007007D960C /* AddPlayerViewController.swift */; };
+		B69FB8AB28A1252800B6E986 /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FB8AA28A1252800B6E986 /* GameSelectionViewController.swift */; };
+		B69FB8AD28A12F2300B6E986 /* LeftGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FB8AC28A12F2300B6E986 /* LeftGestureViewController.swift */; };
+		B69FB8AF28A12F3D00B6E986 /* RightGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FB8AE28A12F3D00B6E986 /* RightGestureViewController.swift */; };
 		B6D593C9289A8F03004AC2C8 /* AddPlayerTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D593C8289A8F03004AC2C8 /* AddPlayerTextFieldTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		B65F94BE2897D96E007D960C /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		B65F94C02897E5D9007D960C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B65F94C22897F007007D960C /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		B69FB8AA28A1252800B6E986 /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
+		B69FB8AC28A12F2300B6E986 /* LeftGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftGestureViewController.swift; sourceTree = "<group>"; };
+		B69FB8AE28A12F3D00B6E986 /* RightGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightGestureViewController.swift; sourceTree = "<group>"; };
 		B6D593C8289A8F03004AC2C8 /* AddPlayerTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				B65F94BE2897D96E007D960C /* GestureViewController.swift */,
+				B69FB8AC28A12F2300B6E986 /* LeftGestureViewController.swift */,
+				B69FB8AE28A12F3D00B6E986 /* RightGestureViewController.swift */,
 			);
 			path = "Gesture Tab Bar";
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 			children = (
 				B65F94C22897F007007D960C /* AddPlayerViewController.swift */,
 				B6D593C8289A8F03004AC2C8 /* AddPlayerTextFieldTableViewCell.swift */,
+				B69FB8AA28A1252800B6E986 /* GameSelectionViewController.swift */,
 			);
 			path = "Add Player";
 			sourceTree = "<group>";
@@ -171,9 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65F94BF2897D96E007D960C /* GestureViewController.swift in Sources */,
+				B69FB8AD28A12F2300B6E986 /* LeftGestureViewController.swift in Sources */,
+				B69FB8AB28A1252800B6E986 /* GameSelectionViewController.swift in Sources */,
 				B65F94C32897F007007D960C /* AddPlayerViewController.swift in Sources */,
 				B65F94C12897E5D9007D960C /* CustomTableViewCell.swift in Sources */,
 				B65F94AF2897D35A007D960C /* ViewController.swift in Sources */,
+				B69FB8AF28A12F3D00B6E986 /* RightGestureViewController.swift in Sources */,
 				B65F94AB2897D35A007D960C /* AppDelegate.swift in Sources */,
 				B65F94AD2897D35A007D960C /* SceneDelegate.swift in Sources */,
 				B6D593C9289A8F03004AC2C8 /* AddPlayerTextFieldTableViewCell.swift in Sources */,
