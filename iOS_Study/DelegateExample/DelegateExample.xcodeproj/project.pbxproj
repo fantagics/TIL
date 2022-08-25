@@ -14,6 +14,7 @@
 		B6DE676E28B6409100E95773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DE676D28B6409100E95773 /* Assets.xcassets */; };
 		B6DE677128B6409100E95773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DE676F28B6409100E95773 /* LaunchScreen.storyboard */; };
 		B6DE677928B6410D00E95773 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DE677828B6410D00E95773 /* SecondViewController.swift */; };
+		B6DE67DB28B7CA6500E95773 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DE67DA28B7CA6500E95773 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B6DE677028B6409100E95773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6DE677228B6409100E95773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6DE677828B6410D00E95773 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B6DE67DA28B7CA6500E95773 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				B6DE676A28B6408F00E95773 /* Main.storyboard */,
 				B6DE676828B6408F00E95773 /* FirstViewController.swift */,
 				B6DE677828B6410D00E95773 /* SecondViewController.swift */,
+				B6DE67DA28B7CA6500E95773 /* DataManager.swift */,
 			);
 			path = DelegateExample;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				B6DE676928B6408F00E95773 /* FirstViewController.swift in Sources */,
 				B6DE676528B6408F00E95773 /* AppDelegate.swift in Sources */,
 				B6DE676728B6408F00E95773 /* SceneDelegate.swift in Sources */,
+				B6DE67DB28B7CA6500E95773 /* DataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
